@@ -404,3 +404,11 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Include local configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
+
