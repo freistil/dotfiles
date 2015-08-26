@@ -20,5 +20,5 @@ For updating your setup, execute:
 
 ## Customisation
 
-You can customise your settings by adding your own dotfiles. See "Multiple dotfile directories" in the [rcm man page](http://thoughtbot.github.io/rcm/rcm.7.html).
+You can customise your settings by adding your own dotfiles from another repository. See "Multiple dotfile directories" in the [rcm man page](http://thoughtbot.github.io/rcm/rcm.7.html).
 
