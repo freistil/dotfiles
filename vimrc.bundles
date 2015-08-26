@@ -1,0 +1,31 @@
+if &compatible
+  set nocompatible
+end
+
+call plug#begin('~/.vim/bundle')
+
+" Define bundles via Github repos
+Plug 'christoomey/vim-run-interactive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'pbrisbin/vim-mkdir'
+"Plug 'scrooloose/syntastic'
+"Plug 'slim-template/vim-slim'
+"Plug 'thoughtbot/vim-rspec'
+"Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+"Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/tComment'
+Plug 'altercation/vim-colors-solarized'
+Plug 'rizzatti/dash.vim'
+Plug 'plasticboy/vim-markdown'
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()
