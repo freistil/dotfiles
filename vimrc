@@ -327,7 +327,7 @@ let g:syntastic_eruby_ruby_quiet_messages =
 " => Markdown editing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled=1
-
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
