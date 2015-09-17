@@ -113,7 +113,9 @@ set colorcolumn=+1
 
 " Numbers
 set number
+set relativenumber
 set numberwidth=5
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
