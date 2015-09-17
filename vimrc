@@ -101,6 +101,9 @@ set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" Short key for netrw
+nmap <silent> <Leader>e :Explore<CR>
+
 " Use NerdTree layout in explorer mode
 let g:netrw_liststyle=3
 
