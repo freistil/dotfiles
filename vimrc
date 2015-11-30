@@ -349,6 +349,8 @@ map <leader>x :e ~/buffer.md<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" Always start in line 1 of Git commit messages
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
