@@ -16,7 +16,7 @@ alias s="rspec"
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Chef
-alias chefsh='eval $(chef shell-init ${SHELL##*/})'
+alias chefsh='eval "$(chef shell-init ${SHELL##*/})"'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
