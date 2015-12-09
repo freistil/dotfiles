@@ -18,6 +18,17 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # Chef
 alias chefsh='eval "$(chef shell-init ${SHELL##*/})"'
 
+# Docker
+alias dps='docker ps'
+alias dex='docker exec'
+alias drm='docker rm'
+alias dim='docker images'
+alias drmi='docker rmi'
+alias dc='docker-compose'
+alias dcup='docker-compose up'
+alias dcps='docker-compose ps'
+alias dcr='docker-compose run'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
