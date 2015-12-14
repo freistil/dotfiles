@@ -28,4 +28,3 @@ alias dcr='docker-compose run'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
-
