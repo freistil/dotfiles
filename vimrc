@@ -123,12 +123,12 @@ set numberwidth=5
 " Enable syntax highlighting
 syntax enable 
 
-set background=dark
-let g:solarized_termtrans = 1
-let g:solarized_termcolors=256
-
+" Solarized Dark color scheme using the vim-colors-solarized plugin
 try
     colorscheme solarized
+    set background=dark
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=256
 catch
 endtry
 
@@ -200,12 +200,6 @@ map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
-
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -285,6 +279,7 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.rb :call DeleteTrailingWS()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -337,23 +332,16 @@ let g:syntastic_eruby_ruby_quiet_messages =
 let g:vim_markdown_folding_disabled=1
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
-
-" Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
-
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
 " Always start in line 1 of Git commit messages
-autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
