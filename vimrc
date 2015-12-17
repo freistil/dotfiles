@@ -306,10 +306,13 @@ nnoremap \ :Ag<SPACE>
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
-" Shortcuts using <leader>
+" ,sn for next misspelled word
 map <leader>sn ]s
+" ,sp for previous misspelled word
 map <leader>sp [s
+" ,sa for add current word as good
 map <leader>sa zg
+" ,s? for suggest correction
 map <leader>s? z=
 
 
