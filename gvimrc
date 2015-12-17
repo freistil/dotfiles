@@ -1,3 +1,4 @@
+" Set font in graphical vim
 set guifont=Source\ Code\ Pro:h16
 
 " Launch Marked with file
@@ -6,10 +7,13 @@ set guifont=Source\ Code\ Pro:h16
 " Launch Dash with current keyword
 :nmap <silent> <leader>d <Plug>DashSearch
 
+" Disable balloon tooltips in Ruby files
+autocmd FileType ruby,eruby set noballooneval
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Include local configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable($HOME . "/.mvimrc.local")
-  source ~/.mvimrc.local
+if filereadable($HOME . "/.gvimrc.local")
+  source ~/.gvimrc.local
 endif
 
