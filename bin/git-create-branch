@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+
+git checkout -b "$1"
+git push -u origin
