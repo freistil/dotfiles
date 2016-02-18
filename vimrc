@@ -344,6 +344,8 @@ map <leader>pp :setlocal paste!<cr>
 
 " Always start in line 1 of Git commit messages
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+" Limit commit messages to 72 character lines
+au BufRead,BufNewFile COMMIT_EDITMSG setlocal textwidth=72
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
