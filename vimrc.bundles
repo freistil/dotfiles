@@ -16,7 +16,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
 Plug 'altercation/vim-colors-solarized'
 Plug 'rizzatti/dash.vim'
-Plug 'plasticboy/vim-markdown'
 Plug 'christoomey/vim-tmux-navigator'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
