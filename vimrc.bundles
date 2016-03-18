@@ -13,9 +13,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
+" A custom text object for selecting ruby blocks
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+" Toggle comments
 Plug 'vim-scripts/tComment'
+" Solarized colour theme
 Plug 'altercation/vim-colors-solarized'
+" Dash integration
 Plug 'rizzatti/dash.vim'
+" Navigate vim panes identical to tmux panes
 Plug 'christoomey/vim-tmux-navigator'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
