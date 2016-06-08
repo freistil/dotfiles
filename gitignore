@@ -10,3 +10,5 @@ Icon
 *.sublime-workspace
 *.sublime-project
 .Ulysses-*.plist
+tags
+gems.tags
