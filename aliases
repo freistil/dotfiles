@@ -17,6 +17,12 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 # Chef
 alias chefsh='eval "$(chef shell-init ${SHELL##*/})"'
+alias ksn='knife search node'
+alias kns='knife node show'
+alias kcu='knife spork upload'
+alias ksp='knife spork promote'
+alias kef='knife environment from file'
+alias kdf='knife data bag from file'
 
 # Docker
 alias dps='docker ps'
