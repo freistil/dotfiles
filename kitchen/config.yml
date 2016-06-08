@@ -10,3 +10,6 @@ driver_config:
 provisioner:
   name: chef_zero
   chef_omnibus_root: /opt/chef
+
+transport:
+  name: sftp
