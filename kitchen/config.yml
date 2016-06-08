@@ -7,6 +7,9 @@ driver_config:
   require_chef_omnibus: false
   use_sudo: false
 
+transport:
+  name: sftp
+
 provisioner:
   name: chef_zero
   chef_omnibus_root: /opt/chef
