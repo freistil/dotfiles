@@ -123,15 +123,6 @@ set numberwidth=5
 " Enable syntax highlighting
 syntax enable 
 
-" Solarized Dark color scheme using the vim-colors-solarized plugin
-try
-    colorscheme solarized
-    set background=dark
-    let g:solarized_termtrans=1
-    let g:solarized_termcolors=256
-catch
-endtry
-
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
