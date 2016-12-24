@@ -1,4 +1,5 @@
 # load rbenv if available
-if which rbenv >/dev/null ; then
-  eval "$(rbenv init -)"
-fi
+RBENV=$(which rbenv)
+test -x "$RBENV" || RBENV="$HOME/.rbenv/bin/rbenv"
+
+test -x "$RBENV" && eval "$($RBENV init -)"
