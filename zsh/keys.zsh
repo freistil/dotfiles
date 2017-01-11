@@ -1,3 +1,6 @@
+# Emacs mode
+bindkey -e
+
 # handy keybindings
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
