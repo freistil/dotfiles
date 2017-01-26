@@ -23,6 +23,7 @@ alias kcu='knife spork upload'
 alias ksp='knife spork promote'
 alias kef='knife spork environment from file'
 alias kdf='knife data bag from file'
+alias krf='knife role from file'
 
 # Docker
 alias dps='docker ps'
