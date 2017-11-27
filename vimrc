@@ -285,6 +285,9 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  " search scope
+  let g:ctrlp_working_path_mode = 'a'
 endif
 
 " bind \ (backward slash) to grep shortcut
