@@ -326,8 +326,9 @@ let g:syntastic_eruby_ruby_quiet_messages =
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Markdown editing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.md setlocal textwidth=80
 let g:vim_markdown_folding_disabled=1
-au BufRead,BufNewFile *.md setlocal textwidth=80
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
