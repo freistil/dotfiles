@@ -1,11 +1,14 @@
 # Enable autojump
 
 if which brew >/dev/null; then
-  PREFIX=$(brew --prefix)
+  script=$(brew --prefix)/etc/profile.d/autojump.sh
 else
-  PREFIX=""
+  script=/etc/profile.d/autojump.sh
+  if [[ ! -f $script ]]; then
+    script=/usr/share/autojump/autojump.sh
+  fi
 fi
 
 if which autojump >/dev/null; then
-  [[ -s $PREFIX/etc/profile.d/autojump.sh ]] && . $PREFIX/etc/profile.d/autojump.sh
+  source $script
 fi
