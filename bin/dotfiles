@@ -13,7 +13,7 @@ if [[ -d ~/.dotfiles ]]; then
   cd ~/.dotfiles
   git pull
 else
-  git clone https://github.com/freistil/dotfiles.git ~/.freistil-dotfiles
+  git clone https://github.com/freistil/dotfiles.git ~/.dotfiles
 fi
 
 chsh -s /bin/zsh root
