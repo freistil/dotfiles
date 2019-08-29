@@ -13,7 +13,7 @@ NC='\e[0m'              # No Color
 
 _update_prompt()
 {
-    LOAD=$(sysctl vm.loadavg | awk '{print $3}')
+    LOAD=$(cat /proc/loadavg | awk '{print $3}')
 }
 
 function setprompt()
