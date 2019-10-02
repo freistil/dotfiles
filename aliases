@@ -39,6 +39,9 @@ alias dcup='docker-compose up'
 alias dcps='docker-compose ps'
 alias dcr='docker-compose run'
 
+# Tools
+which prettyping >/dev/null && alias ping='prettyping'
+
 # Make directory and change into it
 function mcd() {
   mkdir -p "$1" && cd "$1";
