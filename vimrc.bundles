@@ -1,7 +1,3 @@
-if &compatible
-  set nocompatible
-end
-
 call plug#begin('~/.vim/bundle')
 
 " Fuzzy file search via Ctrl-p
