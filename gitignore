@@ -9,6 +9,7 @@ Icon
 *.tmproj
 *.sublime-workspace
 *.sublime-project
+*.code-workspace
 .Ulysses-*.plist
 tags
 gems.tags
