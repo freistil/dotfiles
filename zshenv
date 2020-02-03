@@ -1,12 +1,3 @@
-# use vim as the visual editor
-if which nvim >/dev/null
-then
-  export VISUAL=nvim
-else
-  export VISUAL=vim
-fi
-export EDITOR=$VISUAL
-
 # ensure dotfiles bin directory is loaded first
 export PATH="$HOME/.bin:/usr/local/sbin:/usr/local/bin:$PATH"
 
