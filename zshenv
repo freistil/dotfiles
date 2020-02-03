@@ -1,5 +1,10 @@
 # use vim as the visual editor
-export VISUAL=vim
+if which nvim >/dev/null
+then
+  export VISUAL=nvim
+else
+  export VISUAL=vim
+fi
 export EDITOR=$VISUAL
 
 # ensure dotfiles bin directory is loaded first
