@@ -1,6 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Let's leave the dark ages behind
+set nocompatible
+
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -8,7 +11,7 @@ set history=700
 filetype plugin on
 filetype indent on
 
-" Set to auto read when a file is changed from the outside
+" Set to auto-read when a file is changed from the outside
 set autoread
 
 " With a map leader it's possible to do extra key combinations
@@ -101,12 +104,6 @@ set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-" Short key for netrw
-nmap <silent> <Leader>e :Explore<CR>
-
-" Use NerdTree layout in explorer mode
-let g:netrw_liststyle=3
-
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
@@ -121,7 +118,7 @@ set numberwidth=5
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -146,6 +143,17 @@ set nobackup
 set nowb
 set noswapfile
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => netrw file browser
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shortcut
+nmap <silent> <Leader>e :Explore<CR>
+
+" Hide the banner
+let g:netrw_banner=0
+" Use NerdTree layout in explorer mode
+let g:netrw_liststyle=3
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -240,7 +248,29 @@ set viminfo^=%
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -272,6 +302,8 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
 
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Searching
@@ -288,11 +320,12 @@ if executable('ag')
 
   " search scope
   let g:ctrlp_working_path_mode = 'a'
+
+  " bind backslash to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
 endif
 
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -332,11 +365,20 @@ let g:vim_markdown_folding_disabled=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tags
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Reindex project with ctags
+command! MakeTags !ctags -R .
+
+" Now we can
+" - use ^] to jump to tag under cursor
+" - use g^] for ambiguous tags
+" - use ^t to jump back up the tag stack
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
-
 " Always start in line 1 of Git commit messages
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " Limit commit messages to 72 character lines
@@ -375,7 +417,6 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
-
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
@@ -384,7 +425,7 @@ function! HasPaste()
     return ''
 endfunction
 
-" Don't close window, when deleting a buffer
+" Don't close window when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
    let l:currentBufNum = bufnr("%")
