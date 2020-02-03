@@ -8,8 +8,6 @@ call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
 " mkdir in vim
 Plug 'pbrisbin/vim-mkdir'
-" Auto-close blocks
-Plug 'tpope/vim-endwise'
 " Helpers for UNIX
 Plug 'tpope/vim-eunuch'
 " Git support
