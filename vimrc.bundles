@@ -1,3 +1,8 @@
+if &compatible
+  " Required when called without vimrc
+  set nocompatible
+end
+
 call plug#begin('~/.vim/bundle')
 
 " Fuzzy file search via Ctrl-p
