@@ -117,6 +117,9 @@ set numberwidth=5
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable 256 colours
+set termguicolors
+
 " Enable syntax highlighting
 syntax enable
 
