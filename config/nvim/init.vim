@@ -123,6 +123,12 @@ set termguicolors
 " Enable syntax highlighting
 syntax enable
 
+" Use italic font
+highlight Comment gui=italic
+highlight Comment cterm=italic
+highlight htmlArg gui=italic
+highlight htmlArg cterm=italic
+
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
